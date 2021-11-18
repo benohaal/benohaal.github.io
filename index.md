@@ -30,6 +30,8 @@ safari and the zookeeper problem that are also very similar.
 
 ## Interactive example & Code
 
+**Note: This is only a placeholder**
+
 <iframe src="https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
      title="Triangulation of polygons"
