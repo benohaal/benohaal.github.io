@@ -1,1 +1,3 @@
 theme: jekyll-theme-cayman
+title: Watchman route problem
+description: This website introduces the reader to the watchman route problem. It contains an introduction to the problem, aswell as an algorithm to approximate a solution.
