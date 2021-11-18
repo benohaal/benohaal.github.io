@@ -1,3 +1,8 @@
+---
+title: My First Page
+layout: default
+---
+
 ## Welcome to GitHub Pages !
 [Try this link](https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview)
 ![Test image](./github_img_test.png)
