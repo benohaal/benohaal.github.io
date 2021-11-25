@@ -25,11 +25,18 @@
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
       {% endif %}
-      <span> This is a simple test. </span>
     </header>
 
     <main id="content" class="main-content" role="main">
-      {{ content }}
+       <ul>
+          <li><a href="#">Introduction</a></li>
+          <li><a href="#">Definitions</a></li>
+          <li><a href="#">Watchman problem</a></li>
+          <li><a href="#">More</a></li>
+          <li><a href="#">References</a></li>
+        </ul> 
+      
+      <article>{{ content }}</article>
 
       <footer class="site-footer">
         {% if site.github.is_project_page %}
