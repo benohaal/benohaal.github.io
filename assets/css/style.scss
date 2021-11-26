@@ -28,8 +28,18 @@ section {
   box-shadow: none;
   border: none;
   border-radius: none;
+  margin-top: 0;
+  position: inherit;
+  top: -210px;
 }
 
 nav {
   border-right: solid;
+  padding-right: 10px;
+  border-color: gray;
+  position: sticky;
+  top: 50px;
+  margin-top: 50px;
+  left: 0;
+  margin-left: -230px;
 }
