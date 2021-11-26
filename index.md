@@ -7,28 +7,20 @@ title: Watchman Route Problem
 - The subject ended up being way more complicated to approach than I expected, hence I spent a lot of time looking for articles and finding "the right one"
 - The project is based on the following paper https://www.sciencedirect.com/science/article/pii/S030439750700463X?via%3Dihub, regarding a linear-time 2-approximation algorithm for simple polygons
 
+### Abstract
+The watchman route problem is an optimization problem related to the famous art gallery problem. The problem is the following.
+Given a simple polygon, we want to find the shortest (closed) route such that any point inside the polygon is visible from at least one point of the route.
+This website contains all the definitions needed to apprehend the problem, aswell as simple-ish approximation algorithm to find a good solution to the problem.
 
-## Quick Overview
-The watchman route problem (WRP) is a problem belonging to the class of art gallery
-problems. The problem is the following. Given a simple polygon, we want to find the
-shortest route such that any point of the polygon is visible from at least one point of the
-route. It ressembles the original art gallery problem in that there are guards and that
-we want to watch over the entire surface of the polygon. The resolution of this problem
-is tightly related to the touring polygons problem (TPP) and can thus be linked to the
-safari and the zookeeper problem that are also very similar.
-![Test image](./github_img_test.png)
+## Introduction
 
-## The Watchman Route Problem
+## Basic definitions
 
-### Introduction
+## Essential Cuts
 
-### Essential Cuts
+## Approximated Algorithm
 
-### Approximated Algorithm
-
-
-
-## Interactive example & Code
+## Implementation
 
 **Note: This is only a placeholder**
 
@@ -39,3 +31,5 @@ safari and the zookeeper problem that are also very similar.
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
    [Access the code directly](https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview)
+   
+## References
