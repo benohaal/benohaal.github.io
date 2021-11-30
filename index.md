@@ -42,6 +42,13 @@ An optimal solution was found by xxx in [?] and has a time complexity of O(n^3 l
 
 ## First approach
 
+We will now present a solution, without any promises of optimality, using the tools we know. From there, we will work towards a better solution that yields better results. 
+
+The first solution idea, that comes to mind for viewing the whole polygon, bases on the triangulation of a polygon. For every triangulated polygon, there is an associated dual tree. This tree is defined such that we add one node inside every triangle of the polygon and bind two nodes togheter if they share an edge that is not part of the boundary of the polygon. [EXAMPLE] ???? SOURCE ???? We can easily see that the leaves of the dual tree correspond to the the ears of the polygon. The ears of a polygon are defined by a convex vertex of the polygon with its two edges on the boundary of the polygon. We can also notice that in order to visit every leaf, we need to visit the whole tree (every node and every branch). This means that if we visit every ear of the polygon, we will have gone through every triangle of the polygon. Hence, because triangles are convex, we know that the whole polygon is visible from such a path. 
+
+Actually you can do better. Extension of an edge. 
+Essential cuts. (with dominance etc)
+
 **Note: This is only a placeholder**
 
 <iframe src="https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview"
