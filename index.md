@@ -46,8 +46,11 @@ We will now present a solution, without any promises of optimality, using the to
 
 The first solution idea, that comes to mind for viewing the whole polygon, bases on the triangulation of a polygon. For every triangulated polygon, there is an associated dual tree. This tree is defined such that we add one node inside every triangle of the polygon and bind two nodes togheter if they share an edge that is not part of the boundary of the polygon. [EXAMPLE] ???? SOURCE ???? We can easily see that the leaves of the dual tree correspond to the the ears of the polygon. The ears of a polygon are defined by a convex vertex of the polygon with its two edges on the boundary of the polygon. We can also notice that in order to visit every leaf, we need to visit the whole tree (every node and every branch). This means that if we visit every ear of the polygon, we will have gone through every triangle of the polygon. Hence, because triangles are convex, we know that the whole polygon is visible from such a path. 
 
-Actually you can do better. Extension of an edge. 
-Essential cuts. (with dominance etc)
+This method is however far from optimal. It implies going through every triangle of the polygon, some of which are even visited twice to close the route. If we try to be smarter, we can see that to see the content of a triangle, one does not need to step into the triangle. One could stop at the edge an still see the whole area of it. Actually, we can do even better than that. Using chords (line segments) that go through two vertices, we split the polygon into two pieces. We refer to these partitions as cuts.
+
+[TO continue]
+
+Actually you can do better. Extension of a reflex edge. Cuts. Dominance. Essential cuts. 
 
 **Note: This is only a placeholder**
 
@@ -61,11 +64,24 @@ Essential cuts. (with dominance etc)
 
 ## Shortest route
 
+Shortest path as a solution to the WRP goes through every essential cut => Idea behind is that we want to peak behind corners.
+Shortest path visits the essential cuts in the order of their defining vertex.
+One WRP solution : middle of every essential cut and through the "door".
+Link to TSP with neighberhoods & Zookeeper problem.
+Discuss an approximation algorithm presented in [?] by xxx.
+
 ## Approximation
+
+Rubberband algorithm + idea
+ESP (polygon triangulation, funels)
+tangent
+convex hull
 
 ## Conclusion
 
-
+The Watchman route problem is an interesting problem in computational geometry that makes use of a lot of basic notions (which we have seen in class).
+The problem is still relevant, as it can have a lot of applications in the age of robotics and autonomous vehicles/robots.
+Finding (approximated) solutions for the problem is however not an easy task and most articles on the subject present "simple" solutions, that actually aren't.
    
 ## References
 https://www.researchgate.net/publication/220991554_Watchman_Route_in_a_Simple_Polygon_with_a_Rubberband_Algorithm
