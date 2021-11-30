@@ -34,6 +34,12 @@ Polygon triangulation is the decomposition of polygons into a set of triangles. 
 
 ## Problem definition
 
+As mentionned before, we will consider the watchman route problem in the case of simple polygons. We will review this problem in the fixed version, for which the route must go through a start point (a "door") located on the boundary of the polygon. This is opposed to the floating variant, for which no fixed point is specified.
+
+Finding the shortest route for this problem is not trivial, as there can be an infinite number of routes and paths inside a polygon.
+An optimal solution was found by xxx in [?] and has a time complexity of O(n^3 log n). Hence it is of interest to find a linear time approximation algorithm. In [?], xxx presents a 2-approximation linear time algorithm to solve the watchman route problem, meaning that the solution is at most 2 times as long as the optimal solution. To give an idea of the magnitude of this result, a previous article [?] had a solution that was at most 99,.. times longer than the shortest watchman route.
+
+
 ## First approach
 
 **Note: This is only a placeholder**
