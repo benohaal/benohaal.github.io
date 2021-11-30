@@ -6,7 +6,7 @@ title: Watchman Route Problem
 
 The watchman route problem is an optimization problem related to the famous art gallery problem. The problem is the following.
 Given a simple polygon, we want to find the shortest (closed) route such that any point inside the polygon is visible from at least one point of the route.
-This website contains all the definitions needed to apprehend the problem, aswell as simple-ish approximation algorithm to find a good solution to the problem.
+This report contains all the definitions needed to apprehend the problem, aswell as simple-ish approximation algorithm to find a good solution to the problem.
 
 ## Introduction
 
@@ -16,6 +16,18 @@ If we now allow the guards to move along a closed chain of segments, known as a 
 <center><img src="github_img_test.png" width="400" height="200" /></center>
 
 ## Prelimenaries
+
+In this section, we will give some basic terminology and definitions which will be useful later on.
+
+The polygons we consider in this report are n-sided (n edges) simple (no holes and doesn't self-intersect) polygons.
+They have n edges and n vertices, where n >= 6. This is because simple polygons with n <= 5 sides only need one static guard to solve the problem. Moreover, the polygons shouldn't be starshaped, as these are also solved with one static guard.
+
+We'll find two kinds of vertices inside the polygons. The ones with an inner angle of less than 180° and those with an inner angle of more than 180°. They are called convex and reflex vertices respectively. Note that a polygon with only convex vertices is called a convex polygon.
+
+A convex hull is defined as the smallest convex set S containing a given shape (e.g. a polygon), where the convex set is a set of points such that for any two points x, y &#8712; S, the segment [x, y] is in the convex set. For convex polygons, the convex hull is equal to the polygon itself. Note that every convex polygon can, again, be guarded by only one static guard.
+
+tangent: convex polygons/hulls can have a tangent. line l st: intersect with only one point of the polygon/hull
+polygon triangulation: is the decomposition of a polygon into a set of triangles Note: there are many ways to triangulate a polygon with n >= 4.
 
 ## Problem definition
 
@@ -32,6 +44,8 @@ If we now allow the guards to move along a closed chain of segments, known as a 
    [Access the code directly](https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview)
 
 ## Shortest route
+
+## Approximation
 
 ## Conclusion
 
