@@ -15,7 +15,7 @@ To better understand the presented problem, let's take a look at the art gallery
 By replacing the static guards with guards that can move along a line segment, one obtains the art gallery problem with mobile guards. In this variant, the objective is still the same as with the original problem. It however requires a new definition of visibility. When we talked about visibility with static guards, we implicitly meant strong visibility, such that every point of the polygon is visible at all times by one of the guards. This is not required anymore and leads to the definition of weak visibility, for which, every point of the polygon should be visible by at least one point on the line segments of the guards.
 
 If we now allow the guards to move along a closed chain of segments, known as a closed path, and by reducing the number of guards to 1, we obtain the so called Watchman route problem. 
-<center><img src="github_img_test.png" width="400" height="200" /></center>
+<center><img src="assets/images/WRP.png" width="400" height="200" /><br><span>Figure 1: A watchman route example</span></center>
 
 ## Prelimenaries
 
@@ -44,11 +44,21 @@ An optimal solution was found by xxx in [?] and has a time complexity of O(n^3 l
 
 We will now present a solution, without any promises of optimality, using the tools we know. From there, we will work towards a better solution that yields better results. 
 
-The first solution idea, that comes to mind for viewing the whole polygon, bases on the triangulation of a polygon. For every triangulated polygon, there is an associated dual tree. This tree is defined such that we add one node inside every triangle of the polygon and bind two nodes togheter if they share an edge that is not part of the boundary of the polygon. [EXAMPLE] ???? SOURCE ???? We can easily see that the leaves of the dual tree correspond to the the ears of the polygon. The ears of a polygon are defined by a convex vertex of the polygon with its two edges on the boundary of the polygon. We can also notice that in order to visit every leaf, we need to visit the whole tree (every node and every branch). This means that if we visit every ear of the polygon, we will have gone through every triangle of the polygon. Hence, because triangles are convex, we know that the whole polygon is visible from such a path. 
+The first solution idea, that comes to mind for viewing the whole polygon, bases on the triangulation of a polygon. For every triangulated polygon, there is an associated dual tree. This tree is defined such that we add one node inside every triangle of the polygon and bind two nodes togheter if they share an edge that is not part of the boundary of the polygon. 
 
-This method is however far from optimal. It implies going through every triangle of the polygon, some of which are even visited twice to close the route. If we try to be smarter, we can see that to see the content of a triangle, one does not need to step into the triangle. One could stop at the edge an still see the whole area of it. Actually, we can do even better than that. Using chords (line segments) that go through two vertices, we split the polygon into two pieces. We refer to these partitions as cuts.
+<center><img src="assets/images/dual_tree.png"/><br><span>Figure 2: Left, a polygon. Right, the dual tree of the polygon</span></center>
 
-[TO continue]
+
+We can easily see that the leaves of the dual tree correspond to the the ears of the polygon. The ears of a polygon are defined by a convex vertex of the polygon with its two edges on the boundary of the polygon. We can also notice that in order to visit every leaf, we need to visit the whole tree (every node and every branch). This means that if we visit every ear of the polygon, we will have gone through every triangle of the polygon. Hence, because triangles are convex, we know that the whole polygon is visible from such a path. 
+
+This method is however far from optimal. It implies going through every triangle of the polygon, some of which are even visited twice to close the route. If we try to be smarter, we can see that to see the content of a triangle, one does not need to step into the triangle. One could stop at the edge and still see the whole area of it. Actually, we can do even better than that. Using chords (line segments) that go through two vertices, we can split the polygon into two pieces. We refer to these partitions as cuts.
+
+What we essentially want our guard to do, is to peak behind every corner of the polygon. Using cuts, we can split the polygon into one part that is totally visible from any point of the cut and the other part that 
+-reflex vertices
+-extend edge
+-obtain a cut
+
+<center><img src="assets/images/first_approach.png"/><br><span>Figure 3: From left to right we have a polygon, a triangulated polygon and a polygon with two essential cuts</span></center>
 
 Actually you can do better. Extension of a reflex edge. Cuts. Dominance. Essential cuts. 
 
