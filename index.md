@@ -58,7 +58,7 @@ What we essentially want our guard to do, is to peak behind every corner of the 
 -extend edge
 -obtain a cut
 
-<center><img src="assets/images/first_approach.png"/><br><span>Figure 3: From left to right we have a polygon, a triangulated polygon and a polygon with two essential cuts</span></center>
+<center><img src="assets/images/polygon_ears.png"/><br><span>Figure 3: From left to right we have a polygon, a triangulated polygon and a polygon with two essential cuts</span></center>
 
 Actually you can do better. Extension of a reflex edge. Cuts. Dominance. Essential cuts. 
 
