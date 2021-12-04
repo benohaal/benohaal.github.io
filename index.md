@@ -44,14 +44,17 @@ An optimal solution was found by xxx in [?] and has a time complexity of O(n^3 l
 
 We will now present a solution, without any promises of optimality, using the tools we know. From there, we will work towards a better solution that yields better results. 
 
-The first solution idea, that comes to mind for viewing the whole polygon, bases on the triangulation of a polygon. For every triangulated polygon, there is an associated dual tree. This tree is defined such that we add one node inside every triangle of the polygon and bind two nodes togheter if they share an edge that is not part of the boundary of the polygon. 
+A first solution idea, using what we already know, bases on the triangulation of polygons. It is easy to see that if we visit every triangle of a triangulated polygon, we will have seen every point of the polygon. In fact, as a triangle is a convex shape, for any two points inside of it there exists a segment between those points that lies entirely inside the triangle. Adding to this, we can define the dual tree of a triangulated polygon as follow. For every triangle we add a node inside of it. Then, we bind two nodes together if their associated triangles share an edge.
 
 <center><img src="assets/images/dual_tree.png"/><br><span>Figure 2: Left, a polygon. Right, the dual tree of the polygon</span></center>
 
+A watchman route can thus be defined as a route that visits the triangles along a path defined by the branches of the dual tree. Notice however that such a closed route visits the triangles multiple times, except for the ears of the polygon. This is far from optimal.
 
-We can easily see that the leaves of the dual tree correspond to the the ears of the polygon. The ears of a polygon are defined by a convex vertex of the polygon with its two edges on the boundary of the polygon. We can also notice that in order to visit every leaf, we need to visit the whole tree (every node and every branch). This means that if we visit every ear of the polygon, we will have gone through every triangle of the polygon. Hence, because triangles are convex, we know that the whole polygon is visible from such a path. 
+If we pay attention to Figure 2, we can see that some triangles are entirely visible from points of the polygon that are not part of the triangle. Thus, we need to find a way to define bigger parts of the polygon that would need to be visited only once in a shortest watchman route. This can be done with something called essential cuts. The second part of this section will be dedicated to defining these.
 
-This method is however far from optimal. It implies going through every triangle of the polygon, some of which are even visited twice to close the route. If we try to be smarter, we can see that to see the content of a triangle, one does not need to step into the triangle. One could stop at the edge and still see the whole area of it. Actually, we can do even better than that. Using chords (line segments) that go through two vertices, we can split the polygon into two pieces. We refer to these partitions as cuts.
+
+
+Using chords (line segments) that go through two vertices, we can split the polygon into two pieces. We refer to these partitions as cuts.
 
 What we essentially want our guard to do, is to peak behind every corner of the polygon. Using cuts, we can split the polygon into one part that is totally visible from any point of the cut and the other part that 
 -reflex vertices
