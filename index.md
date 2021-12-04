@@ -34,13 +34,13 @@ Polygon triangulation is the decomposition of polygons into a set of triangles. 
 
 ## Problem definition
 
-As mentionned before, we will consider the watchman route problem in the case of simple polygons. We will review this problem in the fixed version, for which the route must go through a start point (a "door") located on the boundary of the polygon. This is opposed to the floating variant, for which no fixed point is specified.
+As mentionned before, we will consider the watchman route problem in the case of simple polygons. We will review this problem in the fixed version, for which the route must go through a starting point **s** (a "door") located on the boundary of the polygon. This is opposed to the floating variant, for which no fixed point is specified.
 
 Finding the shortest route for this problem is not trivial, as there can be an infinite number of routes and paths inside a polygon.
-An optimal solution was found by xxx in [?] and has a time complexity of O(n^3 log n). Hence it is of interest to find a linear time approximation algorithm. In [?], xxx presents a 2-approximation linear time algorithm to solve the watchman route problem, meaning that the solution is at most 2 times as long as the optimal solution. To give an idea of the magnitude of this result, a previous article [?] had a solution that was at most 99,.. times longer than the shortest watchman route.
+An optimal solution was found by xxx in [?] and has a time complexity of O(n^3 log n). Such a complexity is not ideal in practical, hence it is of interest to find a linear time approximation algorithm. In [?], xxx presents a 2-approximation linear time algorithm to solve the watchman route problem, meaning that the solution is at most 2 times as long as the optimal solution. To give an idea of the magnitude of this result, a previous article [?] had a solution that was at most 99,.. times longer than the shortest watchman route.
 
 
-## First approach
+## Basic ideas
 
 We will now present a solution, without any promises of optimality, using the tools we know. From there, we will work towards a better solution that yields better results. 
 
@@ -50,30 +50,17 @@ A first solution idea, using what we already know, bases on the triangulation of
 
 A watchman route can thus be defined as a route that visits the triangles along a path defined by the branches of the dual tree. Notice however that such a closed route visits the triangles multiple times, except for the ears of the polygon. This is far from optimal.
 
-If we pay attention to Figure 2, we can see that some triangles are entirely visible from points of the polygon that are not part of the triangle. Thus, we need to find a way to define bigger parts of the polygon that would need to be visited only once in a shortest watchman route. This can be done with something called essential cuts. The second part of this section will be dedicated to defining these.
+If we pay attention to *Figure 2*, we can see that some triangles are entirely visible from points of the polygon that are not part of the triangle. Thus, we need to find a way to define bigger parts of the polygon that would need to be visited only once in a shortest watchman route. This can be done with something called essential cuts. The second part of this section will be dedicated to defining these.
 
+The idea of essential cuts is for the guard to peak behind every corner of the polygon, where corners are associated to the definition of reflex vertices. Let's take a reflex vertex **v** and one of its adjacent vertex **u**. we can extend the edge **uv** in the direction from **u** to **v** until we hit the boundary of the polygon at a point **v'**. The segment formed by **v** and **v'** is called a cut and splits the polygon into two parts. One of the parts contains **s** (the starting point) and is called the essential part of the cut. We choose **u** (from before) to be in the essential part of the cut.
 
+If we compute such a cut for every reflex vertex, we obtain a bunch of cuts that we can compare with each other. For two cuts **C<sub>1</sub>** and  **C<sub>2</sub>**, **C<sub>1</sub>** is said to dominate **C<sub>2</sub>** if the essential part part of **C<sub>1</sub>** is entirely contained in the essential part of **C<sub>2</sub>**. A cut **C<sub>i</sub>** is said to be essential if it is not dominated by any other cut.
 
-Using chords (line segments) that go through two vertices, we can split the polygon into two pieces. We refer to these partitions as cuts.
+[EXAMPLE OF ESSENTIAL CUT]
+<center><img src=""/><br><span>Figure 3: Essential cuts (full lines) and non essential cuts (dotted lines)</span></center>
 
-What we essentially want our guard to do, is to peak behind every corner of the polygon. Using cuts, we can split the polygon into one part that is totally visible from any point of the cut and the other part that 
--reflex vertices
--extend edge
--obtain a cut
+In the next sections, we'll use these essential cuts to compute a shortest watchman route solution.
 
-<center><img src="assets/images/polygon_ears.png"/><br><span>Figure 3: From left to right we have a polygon, a triangulated polygon and a polygon with two essential cuts</span></center>
-
-Actually you can do better. Extension of a reflex edge. Cuts. Dominance. Essential cuts. 
-
-**Note: This is only a placeholder**
-
-<iframe src="https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Triangulation of polygons"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-   [Access the code directly](https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview)
 
 ## Shortest route
 
@@ -89,6 +76,16 @@ Rubberband algorithm + idea
 ESP (polygon triangulation, funels)
 tangent
 convex hull
+
+**Note: This is only a placeholder**
+
+<iframe src="https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Triangulation of polygons"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+   [Access the code directly](https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview)
 
 ## Conclusion
 
