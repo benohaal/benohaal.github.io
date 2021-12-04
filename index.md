@@ -73,16 +73,16 @@ Discuss an approximation algorithm presented in [?] by xxx.
 
 ## Algorithms
 
-### Algo. 1: Shortest path between two points
+#### Algorithm 1: Shortest path between two points
 ESP (polygon triangulation, funels)
 [Javascript Example]
 
-### Algo. 2: Maximal Visible Segment
+#### Algorithm 2: Maximal Visible Segment
 tangent
 convex hull
 [Javascript Example]
 
-### Algo. 3: Shortest path going through three distinct line segments
+#### Algorithm 3: Shortest path going through three distinct line segments
 Rubberband algorithm + idea
 uses Algo 1 and 2
 [Javascript Example]
