@@ -70,12 +70,23 @@ One WRP solution : middle of every essential cut and through the "door".
 Link to TSP with neighberhoods & Zookeeper problem.
 Discuss an approximation algorithm presented in [?] by xxx.
 
-## Approximation
 
-Rubberband algorithm + idea
+## Algorithms
+
+### Algo. 1: Shortest path between two points
 ESP (polygon triangulation, funels)
+[Javascript Example]
+
+### Algo. 2: Maximal Visible Segment
 tangent
 convex hull
+[Javascript Example]
+
+### Algo. 3: Shortest path going through three distinct line segments
+Rubberband algorithm + idea
+uses Algo 1 and 2
+[Javascript Example]
+
 
 **Note: This is only a placeholder**
 
