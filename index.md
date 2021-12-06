@@ -82,8 +82,17 @@ ESP (polygon triangulation, funels)
 #### Algorithm 2: Maximal Visible Segment
 This algorithm, presented in [????] as *procedure 1*, computes the portion of the segment **[v1,v2]**, given in the input, that can be seen by a point **q**. Computing this will be useful to shorten the path from one point to another that has to go through a given segment. See Algorithm 3 for more details.
 
-The following example makes use of convex hulls and tangents as defined earlier to compute the maximal visible segment seen by **q**.
-[Javascript Example]
+The following example makes use of convex hulls and tangents as defined earlier to compute the maximal visible segment seen by **q**. For **i** &#8712; **{1, 2}**, we compute the convex hull of all vertices of the polygon that are inside of the triangle **&#916;pqv<sub>i</sub>**. Then, we compute the tangent to the convex hull going from **q** to the segment **[v<sub>1</sub>, v<sub>2</sub>]**. The two tangents now delimit the maximal visible segment.
+
+
+<iframe src="https://codesandbox.io/embed/maximalvisiblesegment-byjiv?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="MaximalVisibleSegment"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+   
+Note that this is a general case example. Thus the algorithm needs to take into account special cases like when **p** is an endpoint of the segment, or when **q** sees an endpoint. See *procedure 1* in [????] for more details.
 
 #### Algorithm 3: Shortest path going through three distinct line segments
 Rubberband algorithm + idea
