@@ -80,8 +80,9 @@ ESP (polygon triangulation, funels)
 [Javascript Example]
 
 #### Algorithm 2: Maximal Visible Segment
-This algorithm, presented in [????] as procedure 1, computes the portion of the segment **[v1,v2]** given in the input, that can be seen by a point **q**. When computing a shortest path from a point **p** that lies on the segment and the point **q**, it is fairly easy to see that p must lie on the visible portion of the computed segment to minimize the path length. Any other point **x** of the original segment, other than the ones in the visible part, would produce a bend in the path from **q** to **x** which results in a longer path.
-The following example makes use of convex hulls and tangents as defined earlier.
+This algorithm, presented in [????] as *procedure 1*, computes the portion of the segment **[v1,v2]**, given in the input, that can be seen by a point **q**. Computing this will be useful to shorten the path from one point to another that has to go through a given segment. See Algorithm 3 for more details.
+
+The following example makes use of convex hulls and tangents as defined earlier to compute the maximal visible segment seen by **q**.
 [Javascript Example]
 
 #### Algorithm 3: Shortest path going through three distinct line segments
