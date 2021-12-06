@@ -17,7 +17,7 @@ By replacing the static guards with guards that can move along a line segment, o
 If we now allow the guards to move along a closed chain of segments, known as a closed path, and by reducing the number of guards to 1, we obtain the so called Watchman route problem. 
 <center><img src="assets/images/WRP.png" width="400" height="200" /><br><span>Figure 1: A watchman route example</span></center>
 
-## Prelimenaries
+## Preliminaries
 
 In this section, we will give some basic terminology and definitions, which will be useful later on.
 
@@ -73,13 +73,15 @@ Discuss an approximation algorithm presented in [?] by xxx.
 
 ## Algorithms
 
+In this section we won't give you the master approximation algorithm used in [?????] to compute the shortest watchman route. We will however give you the ideas of the three smaller algorithms that are used by the approximation algorithm. Some of these will require some notions that were explained in the *Preliminaries* section.
+
 #### Algorithm 1: Shortest path between two points
 ESP (polygon triangulation, funels)
 [Javascript Example]
 
 #### Algorithm 2: Maximal Visible Segment
-tangent
-convex hull
+This algorithm, presented in [????] as procedure 1, computes the portion of the segment **[v1,v2]** given in the input, that can be seen by a point **q**. When computing a shortest path from a point **p** that lies on the segment and the point **q**, it is fairly easy to see that p must lie on the visible portion of the computed segment to minimize the path length. Any other point **x** of the original segment, other than the ones in the visible part, would produce a bend in the path from **q** to **x** which results in a longer path.
+The following example makes use of convex hulls and tangents as defined earlier.
 [Javascript Example]
 
 #### Algorithm 3: Shortest path going through three distinct line segments
