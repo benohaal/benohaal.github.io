@@ -75,9 +75,13 @@ Discuss an approximation algorithm presented in [?] by xxx.
 
 In this section we won't give you the master approximation algorithm used in [?????] to compute the shortest watchman route. We will however give you the ideas of the three smaller algorithms that are used by the approximation algorithm. Some of these will require some notions that were explained in the *Preliminaries* section.
 
+***
+
 #### Algorithm 1: Shortest path between two points
 ESP (polygon triangulation, funels)
 [Javascript Example]
+
+***
 
 #### Algorithm 2: Maximal Visible Segment
 This algorithm, presented in [????] as *procedure 1*, computes the portion of the segment **[v1,v2]**, given in the input, that can be seen by a point **q**. Computing this will be useful to shorten the path from one point to another that has to go through a given segment. See Algorithm 3 for more details.
@@ -94,6 +98,8 @@ The following example makes use of convex hulls and tangents as defined earlier 
    
 Note that this is a general case example. Thus the algorithm needs to take into account special cases like when **p** is an endpoint of the segment, or when **q** sees an endpoint. See *procedure 1* in [????] for more details.
 
+***
+
 #### Algorithm 3: Shortest path going through three distinct line segments
 Rubberband algorithm + idea
 uses Algo 1 and 2
@@ -109,6 +115,8 @@ uses Algo 1 and 2
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
    [Access the code directly](https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview)
+
+***
 
 ## Conclusion
 
