@@ -106,17 +106,15 @@ uses Algo 1 and 2
 [Javascript Example]
 
 
-**Note: This is only a placeholder**
-
-<iframe src="https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="Triangulation of polygons"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-   [Access the code directly](https://codesandbox.io/embed/triangulation-of-polygons-1dvyl?fontsize=14&hidenavigation=1&theme=dark&view=preview)
-
 ***
+
+With these three algorithms, we could now implement the approximation algorithm (*Algorithm 4 in [??????]*) for the watchman route problem as follows:
+
+1.  Compute essential cuts **C<sub>i</sub>** of the polygon, and choose for every cut a point **p<sub>i</sub>** that lies on the middle of the segment.
+
+Repeat 2. as long as the difference between the lenght of the old path and the new path is bigger than &#949;:
+
+2.  For every triplet of cuts **C<sub>i-1</sub>**, **C<sub>i</sub>**, **C<sub>i+1</sub>** and their associated points, apply *Algorithm 3* to adjust the points **p<sub>i-1</sub>**, **p<sub>i</sub>**, **p<sub>i+1</sub>**, aswell as the shortest path between them.
 
 ## Conclusion
 
