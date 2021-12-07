@@ -53,3 +53,9 @@ hr {
     background-image: none;
 }
 
+@media print, screen and (max-width: 1060px) {
+  section {
+    top: 20px;
+  }
+}  
+  
