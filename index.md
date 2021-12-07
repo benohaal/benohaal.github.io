@@ -41,7 +41,7 @@ Polygon triangulation is the decomposition of polygons into a set of triangles. 
 As mentionned before, we will consider the watchman route problem in the case of simple polygons. We will review this problem in the fixed version, for which the route must go through a starting point **s** (a "door") located on the boundary of the polygon. This is opposed to the floating variant, for which no fixed point is specified.
 
 Finding the shortest route for this problem is not trivial, as there can be an infinite number of routes and paths inside a polygon.
-An optimal solution was found by xxx in [?] and has a time complexity of O(n^3 log n). Such a complexity is not ideal in practical, hence it is of interest to find a linear time approximation algorithm. In [?], xxx presents a 2-approximation linear time algorithm to solve the watchman route problem, meaning that the solution is at most 2 times as long as the optimal solution. To give an idea of the magnitude of this result, a previous article [?] had a solution that was at most 99,.. times longer than the shortest watchman route.
+An optimal solution was found that has a time complexity of O(n^3 log n). Such a complexity is not ideal in practical, hence it is of interest to find a linear time approximation algorithm. Xuehou Tan presented a 2-approximation linear time algorithm to solve the watchman route problem, meaning that the solution is at most 2 times as long as the optimal solution. To give an idea of the magnitude of this result, a previous article had a solution that was at most 99,.. times longer than the shortest watchman route.
 
 
 ## Basic ideas
@@ -67,7 +67,7 @@ In the next sections, we'll use these essential cuts to compute a shortest watch
 
 ## Shortest route
 <dl>
-  <dt>Result from [????]</dt>
+  <dt>Result from [3]</dt>
   <dd>A solution to the fixed watchman route problem
 (i.e., a shortest tour) visits the essential cuts in the same order as the defining
 vertices meet ∂Π.</dd>
@@ -81,12 +81,12 @@ In the rest of this report we'll present the algorithms used to approximate a wa
 
 ## Algorithms
 
-In this section we won't give you the master approximation algorithm used in [?????] to compute the shortest watchman route. We will however give you the ideas of the three smaller algorithms that are used by the approximation algorithm. Some of these will require some notions that were explained in the *Preliminaries* section.
+In this section we won't give you the master approximation algorithm used in [1] to compute the shortest watchman route. We will however give you the ideas of the three smaller algorithms that are used by the approximation algorithm. Some of these will require some notions that were explained in the *Preliminaries* section.
 
 ***
 
 #### Algorithm 1: Shortest path between two points
-This algorithm is used to solve the shortest path between two points **s** and **t** that lie inside a simple polygon **P**. The path is such that it doesn't cross the boundary of **P**. The path from **s** to **t** is often referred to as the euclidian shortest path. We will compute such a path using the funnel algorithm from [????].
+This algorithm is used to solve the shortest path between two points **s** and **t** that lie inside a simple polygon **P**. The path is such that it doesn't cross the boundary of **P**. The path from **s** to **t** is often referred to as the euclidian shortest path. We will compute such a path using the funnel algorithm from [2].
 
 The steps of the funnel algorithm are the following. Given a simple polygon **P**:
 1.  triangulate(**P**).
@@ -105,7 +105,7 @@ The steps of the funnel algorithm are the following. Given a simple polygon **P*
 ***
 
 #### Algorithm 2: Maximal Visible Segment
-This algorithm, presented in [????] as *procedure 1*, computes the portion of the segment **[v1,v2]**, given in the input, that can be seen by a point **q**. Computing this will be useful to shorten the path from one point to another that has to go through a given segment. See Algorithm 3 for more details.
+This algorithm, presented in [1] as *procedure 1*, computes the portion of the segment **[v1,v2]**, given in the input, that can be seen by a point **q**. Computing this will be useful to shorten the path from one point to another that has to go through a given segment. See Algorithm 3 for more details.
 
 The following example makes use of convex hulls and tangents as defined earlier to compute the maximal visible segment seen by **q**. For **i** &#8712; **{1, 2}**, we compute the convex hull of all vertices of the polygon that are inside of the triangle **&#916;pqv<sub>i</sub>**. Then, we compute the tangent to the convex hull going from **q** to the segment **[v<sub>1</sub>, v<sub>2</sub>]**. The two tangents now delimit the maximal visible segment.
 
@@ -117,19 +117,19 @@ The following example makes use of convex hulls and tangents as defined earlier 
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
    
-Note that this is a general case example. Thus the algorithm needs to take into account special cases like when **p** is an endpoint of the segment, or when **q** sees an endpoint. See *procedure 1* in [????] for more details.
+Note that this is a general case example. Thus the algorithm needs to take into account special cases like when **p** is an endpoint of the segment, or when **q** sees an endpoint. See *procedure 1* in [1] for more details.
 
 ***
 
 #### Algorithm 3: Shortest path going through three distinct line segments
-This algorithm, presented in [?????] as *procedure 2* is a rubberband algorithm (short: RBA). The idea of RBA's is to simulate a rubberband that snaps into place when you let go of it, so that its new position is more optimal (as in the perimeter of the rubberband is reduced). The algorithm works in small steps and is repeated clockwise on local parts of the rubberband until the perimeter is not reduced anymore. In practice, the end condition computes the difference in perimeter between two iterations and compares it to a small value &#949;.
+This algorithm, presented in [1] as *procedure 2* is a rubberband algorithm (short: RBA). The idea of RBA's is to simulate a rubberband that snaps into place when you let go of it, so that its new position is more optimal (as in the perimeter of the rubberband is reduced). The algorithm works in small steps and is repeated clockwise on local parts of the rubberband until the perimeter is not reduced anymore. In practice, the end condition computes the difference in perimeter between two iterations and compares it to a small value &#949;.
 The algorithm uses *Algorithm 1* and *Algorithm 2* of this report to update the path between 3 chords (cuts) of a polygon.
 
 <center><img src="assets/images/procedure2.png"/><br><span>Figure 4: Algorithm 3 execution. Left is before. Right is after.</span></center>
 
 ***
 
-With this last algorithm, we could now implement the approximation algorithm (*Algorithm 4 in [??????]*) for the watchman route problem as follows:
+With this last algorithm, we could now implement the approximation algorithm (*Algorithm 4 in [1]*) for the watchman route problem as follows:
 
 1.  Compute essential cuts **C<sub>i</sub>** of the polygon, and choose for every cut a point **p<sub>i</sub>** that lies on the middle of the segment.
 
@@ -145,4 +145,8 @@ The problem is still relevant, as it can have a lot of applications in the age o
 Finding (approximated) solutions for the problem is however not an easy task and most articles on the subject present "simple" solutions, that actually aren't.
    
 ## References
-https://www.researchgate.net/publication/220991554_Watchman_Route_in_a_Simple_Polygon_with_a_Rubberband_Algorithm
+[1] F. Li and R. Klette. Watchman Route in a Simple Polygon with a Rubberband Algorithm. [link](https://www.researchgate.net/publication/220991554_Watchman_Route_in_a_Simple_Polygon_with_a_Rubberband_Algorithm) and [link](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.354.416&rep=rep1&type=pdf)
+[2] J. S. B. Mitchell. Geometric shortest paths and network optimization. In Handbook
+of Computational Geometry (J.-R. Sack and J. Urrutia, editors). pages 633–701,
+Elsevier, 2000 [link](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.78.628&rep=rep1&type=pdf)
+[3] Dror, M., Efrat, A., Lubiw, A., & Mitchell, J. S. B. (2003). Touring a Sequence of Polygons. Proceedings of the Thirty-Fifth Annual ACM Symposium on Theory of Computing, 473–482. https://doi.org/10.1145/780542.780612  [link](http://www.ams.sunysb.edu/~jsbm/papers/stoc03.pdf)
