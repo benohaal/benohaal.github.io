@@ -146,7 +146,9 @@ Finding (approximated) solutions for the problem is however not an easy task and
    
 ## References
 [1] F. Li and R. Klette. Watchman Route in a Simple Polygon with a Rubberband Algorithm. [link](https://www.researchgate.net/publication/220991554_Watchman_Route_in_a_Simple_Polygon_with_a_Rubberband_Algorithm) and [link](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.354.416&rep=rep1&type=pdf)
+
 [2] J. S. B. Mitchell. Geometric shortest paths and network optimization. In Handbook
 of Computational Geometry (J.-R. Sack and J. Urrutia, editors). pages 633–701,
 Elsevier, 2000 [link](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.78.628&rep=rep1&type=pdf)
+
 [3] Dror, M., Efrat, A., Lubiw, A., & Mitchell, J. S. B. (2003). Touring a Sequence of Polygons. Proceedings of the Thirty-Fifth Annual ACM Symposium on Theory of Computing, 473–482. https://doi.org/10.1145/780542.780612  [link](http://www.ams.sunysb.edu/~jsbm/papers/stoc03.pdf)
