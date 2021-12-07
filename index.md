@@ -2,6 +2,10 @@
 title: Watchman Route Problem
 ---
 
+> Author: Haal Benoît, student at ULB (Brussels)
+> 
+> Date: December 2021
+
 ### Abstract
 
 The watchman route problem is an optimization problem related to the famous art gallery problem. The problem is the following.
