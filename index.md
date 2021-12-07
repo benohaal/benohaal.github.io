@@ -61,7 +61,7 @@ The idea of essential cuts is for the guard to peak behind every corner of the p
 If we compute such a cut for every reflex vertex, we obtain a bunch of cuts that we can compare with each other. For two cuts **C<sub>1</sub>** and  **C<sub>2</sub>**, **C<sub>1</sub>** is said to dominate **C<sub>2</sub>** if the essential part part of **C<sub>1</sub>** is entirely contained in the essential part of **C<sub>2</sub>**. A cut **C<sub>i</sub>** is said to be essential if it is not dominated by any other cut.
 
 [EXAMPLE OF ESSENTIAL CUT]
-<center><img src=""/><br><span>Figure 3: Essential cuts (full lines) and non essential cuts (dotted lines)</span></center>
+<center><img src="assets/images/essential_cut.png"/><br><span>Figure 3: Essential cuts (full lines) and non essential cuts (dotted lines)</span></center>
 
 In the next sections, we'll use these essential cuts to compute a shortest watchman route solution.
 
