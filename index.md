@@ -117,20 +117,21 @@ Note that this is a general case example. Thus the algorithm needs to take into 
 ***
 
 #### Algorithm 3: Shortest path going through three distinct line segments
-Rubberband algorithm + idea
-uses Algo 1 and 2
-[Javascript Example]
+This algorithm, presented in [?????] as *procedure 2* is a rubberband algorithm (short: RBA). The idea of RBA's is to simulate a rubberband that snaps into place when you let go of it, so that its new position is more optimal (as in the perimeter of the rubberband is reduced). The algorithm works in small steps and is repeated clockwise on local parts of the rubberband until the perimeter is not reduced anymore. In practice, the end condition computes the difference in perimeter between two iterations and compares it to a small value &#949;.
+The algorithm uses *Algorithm 1* and *Algorithm 2* of this report to update the path between 3 chords (cuts) of a polygon.
 
+<center><img src="assets/images/procedure2.png"/><br><span>Figure 4: Algorithm 3 execution. Left is before. Right is after.</span></center>
 
 ***
 
-With these three algorithms, we could now implement the approximation algorithm (*Algorithm 4 in [??????]*) for the watchman route problem as follows:
+With this last algorithm, we could now implement the approximation algorithm (*Algorithm 4 in [??????]*) for the watchman route problem as follows:
 
 1.  Compute essential cuts **C<sub>i</sub>** of the polygon, and choose for every cut a point **p<sub>i</sub>** that lies on the middle of the segment.
 
-Repeat 2. as long as the difference between the lenght of the old path and the new path is bigger than &#949;:
+Repeat 2. as long as the difference between the lenght of the old path and the new route is bigger than &#949;:
 
-2.  For every triplet of cuts **C<sub>i-1</sub>**, **C<sub>i</sub>**, **C<sub>i+1</sub>** and their associated points, apply *Algorithm 3* to adjust the points **p<sub>i-1</sub>**, **p<sub>i</sub>**, **p<sub>i+1</sub>**, aswell as the shortest path between them.
+2.  For every triplet of cuts **C<sub>i-1</sub>**, **C<sub>i</sub>**, **C<sub>i+1</sub>** and their associated points, apply *Algorithm 3* to adjust the shortest path between
+ **p<sub>i-1</sub>** and **p<sub>i+1</sub>**.
 
 ## Conclusion
 
