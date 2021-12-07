@@ -82,8 +82,21 @@ In this section we won't give you the master approximation algorithm used in [??
 ***
 
 #### Algorithm 1: Shortest path between two points
-ESP (polygon triangulation, funels)
-[Javascript Example]
+This algorithm is used to solve the shortest path between two points **s** and **t** that lie inside a simple polygon **P**. The path is such that it doesn't cross the boundary of **P**. The path from **s** to **t** is often referred to as the euclidian shortest path. We will compute such a path using the funnel algorithm from [????].
+
+The steps of the funnel algorithm are the following. Given a simple polygon **P**:
+1.  triangulate(**P**).
+2.  Compute dual tree of triangulate(**P**).
+3.  Compute the sleeve of the path. Do so by finding the unique path inside the dual tree that connects the node of the triangle containing **s** to the node of the triangle containing **t**. All the triangles on the path from **s** to **t** are added to the sleeve.
+4.  Iteratively compute the funnels until the shortest path is found.
+
+
+<iframe src="https://codesandbox.io/embed/2d-esp-w0nzb?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="2D_ESP"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 
 ***
 
