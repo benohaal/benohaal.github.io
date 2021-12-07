@@ -1,6 +1,6 @@
 # benohaal.github.io
 
-This little project is the result of an assignment for the computational geometry course of my master program at ULB (Brussels).
+This little project is the [result](https://benohaal.github.io/) of an assignment for the computational geometry course of my master program at ULB (Brussels).
 The files are supposed to be installed (pushed) onto a github repository with Github Pages enabled. 
 The page should be set up with the Leap-day Jekyll theme. Doing so will automatically create the webpage for you once the content has been committed.
 [Set up a Jekyll page using Github pages](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll).
