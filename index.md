@@ -66,12 +66,17 @@ In the next sections, we'll use these essential cuts to compute a shortest watch
 
 
 ## Shortest route
+<dl>
+  <dt>Result from [????]</dt>
+  <dd>A solution to the fixed watchman route problem
+(i.e., a shortest tour) visits the essential cuts in the same order as the defining
+vertices meet ∂Π.</dd>
+</dl>
 
-Shortest path as a solution to the WRP goes through every essential cut => Idea behind is that we want to peak behind corners.
-Shortest path visits the essential cuts in the order of their defining vertex.
-One WRP solution : middle of every essential cut and through the "door".
-Link to TSP with neighberhoods & Zookeeper problem.
-Discuss an approximation algorithm presented in [?] by xxx.
+Knowing this, a watchman route could be the polynomial chain obtained by adding together the shortest paths between the middle points of the essential cuts in the order defined above.
+This result enables us to link this problem to other interesting problems in computational geometry. Visiting cuts in a given order is similar to the *touring polygons problem*. It is also linked to the *travelling salesman problem with neighberhoods* and to the *zookeeper problem*. More specifically, if we have a solution to one of these problems, we can use it to solve the shortest watchman route problem.
+
+In the rest of this report we'll present the algorithms used to approximate a watchman route as we just specified.
 
 
 ## Algorithms
